@@ -1,0 +1,53 @@
+{
+  "name": "is-dirty",
+  "description": "Returns false if a git repository has no staged, unstaged or untracked changes.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonschlinkert/is-dirty",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "jonschlinkert/is-dirty",
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/is-dirty/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "gitty": "^3.3.4"
+  },
+  "devDependencies": {
+    "gulp-format-md": "*",
+    "mocha": "*"
+  },
+  "keywords": [
+    "dirty",
+    "is"
+  ],
+  "verb": {
+    "related": {
+      "list": []
+    },
+    "run": true,
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "reflinks": [
+      "verb"
+    ],
+    "lint": {
+      "reflinks": true
+    }
+  }
+}
