@@ -20,13 +20,15 @@
     "test": "mocha"
   },
   "dependencies": {
-    "gitty": "^3.3.4",
+    "gitty": "^3.3.6",
     "micromatch": "^2.3.11"
   },
   "devDependencies": {
+    "copy": "^0.2.3",
     "delete": "^0.3.2",
-    "gulp-format-md": "*",
-    "mocha": "*"
+    "gulp-format-md": "^0.1.9",
+    "mkdirp": "^0.5.1",
+    "mocha": "^2.5.3"
   },
   "keywords": [
     "dirty",
