@@ -20,9 +20,11 @@
     "test": "mocha"
   },
   "dependencies": {
-    "gitty": "^3.3.4"
+    "gitty": "^3.3.4",
+    "micromatch": "^2.3.11"
   },
   "devDependencies": {
+    "delete": "^0.3.2",
     "gulp-format-md": "*",
     "mocha": "*"
   },
