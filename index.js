@@ -42,6 +42,8 @@ module.exports = function isDirty(cwd, patterns, cb) {
       }
 
       if (hasFiles(status)) {
+        status.matches = [];
+
         if (patterns) {
           cb(null, getMatches(patterns, status));
         } else {
@@ -70,14 +72,13 @@ function hasFiles(status) {
 }
 
 function getMatches(patterns, status) {
-  var matches = [];
   if (status.staged.length) {
-    matches = mm(pluckFiles(status.staged), patterns);
+    status.matches = mm(pluckFiles(status.staged), patterns);
   }
   if (status.unstaged.length) {
-    matches = matches.concat(mm(pluckFiles(status.unstaged), patterns));
+    status.matches = status.matches.concat(mm(pluckFiles(status.unstaged), patterns));
   }
-  return matches;
+  return status;
 }
 
 function pluckFiles(arr) {
