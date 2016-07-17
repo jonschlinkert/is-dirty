@@ -45,7 +45,7 @@ module.exports = function isDirty(cwd, patterns, cb) {
         status.matches = [];
 
         if (patterns) {
-          cb(null, getMatches(patterns, status));
+          cb(null, getMatches(cwd, patterns, status));
         } else {
           cb(null, status);
         }
@@ -71,13 +71,19 @@ function hasFiles(status) {
   return false;
 }
 
-function getMatches(patterns, status) {
+function getMatches(cwd, patterns, status) {
   if (status.staged.length) {
     status.matches = mm(pluckFiles(status.staged), patterns);
   }
   if (status.unstaged.length) {
     status.matches = status.matches.concat(mm(pluckFiles(status.unstaged), patterns));
   }
+  if (status.untracked.length) {
+    status.matches = status.matches.concat(mm(status.untracked, patterns));
+  }
+  status.matches = status.matches.map(function(filename) {
+    return path.relative(cwd, path.resolve(cwd, filename));
+  });
   return status;
 }
 
@@ -86,7 +92,10 @@ function pluckFiles(arr) {
   var len = arr.length;
   var idx = -1;
   while (++idx < len) {
-    res.push(arr[idx].file);
+    var val = arr[idx];
+    if (val.status !== 'deleted') {
+      res.push(val.file);
+    }
   }
   return res;
 }
