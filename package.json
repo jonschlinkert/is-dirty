@@ -1,7 +1,7 @@
 {
   "name": "is-dirty",
   "description": "Returns false if a git repository has no staged, unstaged or untracked changes.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/jonschlinkert/is-dirty",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "jonschlinkert/is-dirty",
